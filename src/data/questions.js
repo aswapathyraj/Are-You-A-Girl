@@ -1,6 +1,14 @@
 /**
  * All quiz content lives here.
  *
+ * IMPORTANT — every question is force-answered YES.
+ * The system never lets NO through, so each question must be phrased so that
+ * "yes" is the incriminating answer. Write them as things she'd instinctively
+ * want to deny: the comedy comes from reaching for NO, being refused, and
+ * having the confession logged anyway. A question where "yes" means "I'm a
+ * girl" breaks the ending, because the report then contradicts its own
+ * evidence.
+ *
  * `noMode` decides how the NO button refuses to be selected on that question.
  * The escalation ladder itself lives in pages/Quiz.jsx.
  *
@@ -12,21 +20,28 @@
  *   none     — NO was already removed before the question loaded
  */
 export const QUESTIONS = [
-  { id: 1, tag: 'Baseline', text: 'Are you 100% sure you’re a girl?', noMode: 'evade' },
-  { id: 2, tag: 'Energy analysis', text: 'Can you honestly say, “I’m not a boy”?', noMode: 'evade' },
-  { id: 3, tag: 'Linguistic sample', text: 'Have you ever been mistaken for a boy?', noMode: 'evade' },
-  { id: 4, tag: 'Social simulation', text: "If someone called you a boy, would you get offended?", noMode: 'shrink' },
-  { id: 5, tag: 'Physical data', text: 'Is there even a 1% chance you’re secretly a boy?', noMode: 'shrink' },
-  { id: 6, tag: 'Cultural fluency', text: 'Can you prove you’re a girl without saying “I am”?', noMode: 'flee' },
+  { id: 1, tag: 'Baseline', text: 'Are you a boy?', noMode: 'evade' },
+  { id: 2, tag: 'Energy analysis', text: 'Do you have moustache (Meesha)?', noMode: 'evade' },
   {
-    id: 7,
-    tag: 'Behavioural history',
-    text: 'If I asked your friends whether you’re a girl, would they all agree?',
-    noMode: 'relabel',
+    id: 3,
+    tag: 'Linguistic sample',
+    text: 'Bro, do you have any feelings for girls ?',
+    noMode: 'evade',
   },
-  { id: 8, tag: 'Confidence index', text: 'Are you absolutely certain you’re not a boy?', noMode: 'disabled' },
-  { id: 9, tag: 'Final confirmation', text: 'Are you definitely, unquestionably a boy?', noMode: 'none' },
-  { id: 10, tag: 'Consent', text: 'Are you ready to accept the results?', noMode: 'none' },
+  {
+    id: 4,
+    tag: 'Volume calibration',
+    text: 'TBH, does your family know you\'re a boy?',
+    noMode: 'shrink',
+  },
+  {
+    id: 5,
+    tag: 'Physical data',
+    text: 'Have you ever peed standing up, just to see if you could?',
+    noMode: 'shrink',
+  },
+  { id: 6, tag: 'Final confirmation', text: 'Are you definitely, unquestionably a boy?', noMode: 'none' },
+  { id: 7, tag: 'Consent', text: 'Are you ready to accept the results?', noMode: 'none' },
 ]
 
 /** The first four rejections, in order — exactly as the system intends them. */
