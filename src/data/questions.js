@@ -12,19 +12,19 @@
  *   none     — NO was already removed before the question loaded
  */
 export const QUESTIONS = [
-  { id: 1, tag: 'Baseline', text: 'Are you a boy?', noMode: 'evade' },
-  { id: 2, tag: 'Energy analysis', text: 'Do you have boy energy?', noMode: 'evade' },
-  { id: 3, tag: 'Linguistic sample', text: 'Have you ever randomly said “bro”?', noMode: 'evade' },
-  { id: 4, tag: 'Social simulation', text: "Would you survive a boys' group chat?", noMode: 'shrink' },
-  { id: 5, tag: 'Physical data', text: 'Have you ever peed standing up?', noMode: 'shrink' },
-  { id: 6, tag: 'Cultural fluency', text: 'Do you understand the meaning of “bro 💀”?', noMode: 'flee' },
+  { id: 1, tag: 'Baseline', text: 'Are you 100% sure you’re a girl?', noMode: 'evade' },
+  { id: 2, tag: 'Energy analysis', text: 'Can you honestly say, “I’m not a boy”?', noMode: 'evade' },
+  { id: 3, tag: 'Linguistic sample', text: 'Have you ever been mistaken for a boy?', noMode: 'evade' },
+  { id: 4, tag: 'Social simulation', text: "If someone called you a boy, would you get offended?", noMode: 'shrink' },
+  { id: 5, tag: 'Physical data', text: 'Is there even a 1% chance you’re secretly a boy?', noMode: 'shrink' },
+  { id: 6, tag: 'Cultural fluency', text: 'Can you prove you’re a girl without saying “I am”?', noMode: 'flee' },
   {
     id: 7,
     tag: 'Behavioural history',
-    text: 'Have you ever behaved like a complete idiot for absolutely no reason?',
+    text: 'If I asked your friends whether you’re a girl, would they all agree?',
     noMode: 'relabel',
   },
-  { id: 8, tag: 'Confidence index', text: 'Do you possess suspicious levels of confidence?', noMode: 'disabled' },
+  { id: 8, tag: 'Confidence index', text: 'Are you absolutely certain you’re not a boy?', noMode: 'disabled' },
   { id: 9, tag: 'Final confirmation', text: 'Are you definitely, unquestionably a boy?', noMode: 'none' },
   { id: 10, tag: 'Consent', text: 'Are you ready to accept the results?', noMode: 'none' },
 ]
