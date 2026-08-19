@@ -1,0 +1,12 @@
+# Keep everything LF in the repository and in working copies, so the project
+# stays byte-identical across Windows, macOS and Linux checkouts.
+* text=auto eol=lf
+
+# Binary assets should never be line-ending converted.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary

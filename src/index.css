@@ -1,0 +1,163 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  html,
+  body,
+  #root {
+    min-height: 100%;
+  }
+
+  body {
+    @apply bg-[#FDFBFE] font-sans text-ink-800 antialiased;
+    overflow-x: hidden;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    @apply bg-blush-200 text-ink-900;
+  }
+
+  button:focus-visible,
+  a:focus-visible {
+    @apply outline-none ring-2 ring-blush-400/70 ring-offset-2 ring-offset-white;
+  }
+
+  /* Fake-cursor questions read better without a text caret flicker. */
+  button {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-[1.75rem] border border-white/70 bg-white/80 shadow-card backdrop-blur-xl;
+  }
+
+  .label-mono {
+    @apply font-mono text-[0.66rem] font-medium uppercase tracking-[0.22em] text-ink-400;
+  }
+
+  .btn-base {
+    @apply inline-flex select-none items-center justify-center gap-2 rounded-2xl font-semibold
+      transition-colors disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply btn-base bg-gradient-to-b from-blush-400 to-blush-500 text-white shadow-btn
+      hover:from-blush-300 hover:to-blush-500;
+  }
+
+  .btn-ghost {
+    @apply btn-base border border-ink-200 bg-white/70 text-ink-600 hover:border-blush-200 hover:text-ink-800;
+  }
+
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* --- Subtle occasional glitch (used on OVERFLOW / 404 / final reveal) --- */
+.glitch {
+  position: relative;
+  display: inline-block;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.glitch::before {
+  color: #f291b3;
+  clip-path: inset(0 0 56% 0);
+  animation: glitch-top 3.4s steps(1) infinite;
+}
+
+.glitch::after {
+  color: #b4a4ef;
+  clip-path: inset(54% 0 0 0);
+  animation: glitch-bottom 3.4s steps(1) infinite;
+}
+
+.glitch-fast::before {
+  animation-duration: 1.7s;
+}
+
+.glitch-fast::after {
+  animation-duration: 1.7s;
+}
+
+@keyframes glitch-top {
+  0%,
+  90%,
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0;
+  }
+  91% {
+    transform: translate3d(-3px, -1px, 0);
+    opacity: 0.85;
+  }
+  93% {
+    transform: translate3d(2px, 1px, 0);
+    opacity: 0.6;
+  }
+  95% {
+    transform: translate3d(-1px, 0, 0);
+    opacity: 0.4;
+  }
+}
+
+@keyframes glitch-bottom {
+  0%,
+  90%,
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0;
+  }
+  92% {
+    transform: translate3d(3px, 1px, 0);
+    opacity: 0.8;
+  }
+  94% {
+    transform: translate3d(-2px, -1px, 0);
+    opacity: 0.55;
+  }
+  96% {
+    transform: translate3d(1px, 0, 0);
+    opacity: 0.35;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glitch::before,
+  .glitch::after {
+    animation: none;
+    opacity: 0;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
